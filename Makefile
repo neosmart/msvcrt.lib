@@ -29,10 +29,10 @@ x86:
 	mkdir x86
 
 x64/msvcrt.lib: x64/msvcrt.def x64 x64
-	lib /MACHINE:X64 /def:x64/msvcrt.def /out:x64/msvcrt.lib
+	lib.exe /MACHINE:X64 /def:x64/msvcrt.def /out:x64/msvcrt.lib
 
 x86/msvcrt.lib: x86/msvcrt.def x86
-	lib /MACHINE:X86 /def:x86/msvcrt.def /out:x86/msvcrt.lib
+	lib.exe /MACHINE:X86 /def:x86/msvcrt.def /out:x86/msvcrt.lib
 
 clean:
 	rm -f *.exp
