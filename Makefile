@@ -34,6 +34,13 @@ x64/msvcrt.lib: x64/msvcrt.def
 x86/msvcrt.lib: x86/msvcrt.def
 	lib.exe /MACHINE:X86 /def:x86/msvcrt.def /out:x86/msvcrt.lib
 
+zip: x86/msvcrt.lib x64/msvcrt.lib
+	ver.exe | grep -o -P "\d+.\d+.\d+" > version.txt
+# for /f does not support piping
+	for /f "tokens=* USEBACKQ" %i IN (`cat version.txt`) DO ( SET version=%i; echo %i )
+	$$ zip msvcrt_$$(cat version.txt).zip x86/msvcrt.lib x64/msvcrt.lib
+	rm version.txt
+
 clean:
 	rm -f *.exp
 	rm -rf x86
