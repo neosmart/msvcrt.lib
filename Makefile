@@ -1,3 +1,5 @@
+# Compile with nmake from a VS Dev Command Prompt
+
 .PHONY: all
 
 all: x86/msvcrt.lib x64/msvcrt.lib
