@@ -2,3 +2,5 @@
 *.exp
 *.exports
 *.funcs
+x64
+x86
