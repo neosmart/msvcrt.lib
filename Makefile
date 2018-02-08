@@ -17,10 +17,10 @@ x86/msvcrt.exports: x86
 	dumpbin.exe /EXPORTS C:\\Windows\\syswow64\\msvcrt.dll > x86/msvcrt.exports
 
 x64/msvcrt.funcs: x64/msvcrt.exports
-	sed -r "s/.*?(:?[A-F0-9]+ ){2}/\t/;tx;d;:x" ./x64/msvcrt.exports > ./x64/msvcrt.funcs
+	$$ sed -r "s/.*?(:?[A-F0-9]+ ){2}/\t/;tx;d;:x" ./x64/msvcrt.exports > ./x64/msvcrt.funcs
 
 x86/msvcrt.funcs: x86/msvcrt.exports
-	sed -r "s/.*?(:?[A-F0-9]+ ){2}/\t/;tx;d;:x" ./x86/msvcrt.exports > ./x86/msvcrt.funcs
+	$$ sed -r "s/.*?(:?[A-F0-9]+ ){2}/\t/;tx;d;:x" ./x86/msvcrt.exports > ./x86/msvcrt.funcs
 
 x64/msvcrt.def: x64/msvcrt.funcs
 	echo EXPORTS > ./x64/msvcrt.def
