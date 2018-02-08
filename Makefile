@@ -1,4 +1,5 @@
-# Compile with nmake from a VS Dev Command Prompt
+# Compile with `nmake` from a VS Dev Command Prompt on Windows 10.
+# RunInBash aliased to `$` is required. WSL must be installed.
 
 .PHONY: all
 
