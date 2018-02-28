@@ -45,5 +45,5 @@ zip: x86/msvcrt.lib x64/msvcrt.lib
 
 clean:
 	rm -f *.exp
-	rm -rf x86
 	rm -rf x64
+	rm -rf x86
