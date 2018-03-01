@@ -1,7 +1,6 @@
 # Compile with nmake from a VS Dev Command Prompt
 # Requires some basic posix utilities (sed, echo, cat)
-# `zip` utility is required to package releases only, `zip` is executed under WSL
-# via the RunInBash utility (aliased to $.exe and in PATH)
+# RunInBash aliased to `$` is required. WSL must be installed.
 
 .PHONY: all
 
