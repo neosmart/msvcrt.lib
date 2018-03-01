@@ -2,5 +2,9 @@
 *.exp
 *.exports
 *.funcs
-x64 
-x86 
+GetFileVersionInfo.exe
+GetFileVersionInfo.obj
+releases
+version.txt
+x64
+x86
