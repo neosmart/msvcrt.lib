@@ -4,6 +4,7 @@
 *.funcs
 GetFileVersionInfo.exe
 GetFileVersionInfo.obj
+/readme.txt
 releases
 version.txt
 x64

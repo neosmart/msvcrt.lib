@@ -46,11 +46,14 @@ x86/msvcrt.lib: x86/msvcrt.def
 version.txt: GetFileVersionInfo.exe
 	.\\GetFileVersionInfo.exe %windir%\\system32\\ntoskrnl.exe > version.txt
 
-zip: x86/msvcrt.lib x64/msvcrt.lib releases version.txt
+readme.txt: Makefile GetFileVersionInfo.exe
+	$$ printf "msvcrt.lib by Mahmoud Al-Qudsi <mqudsi@neosmart.net>\r\nCopyright NeoSmart Technologies 2018\r\nhttps://github.com/neosmart/msvcrt.lib\r\n\r\nBuilt against Windows %%s and msvcrt.dll %%s\r\n" "$$(./GetFileVersionInfo.exe user32.dll | dos2unix)" "$$(./GetFileVersionInfo.exe msvcrt.dll | dos2unix)" > $@
+
+zip: x86/msvcrt.lib x64/msvcrt.lib releases version.txt readme.txt
 # get Windows version number
 # ver.bat | grep -o -P "\d+.\d+.\d+" > version.txt
 #   for /f does not support piping
-	$$ zip msvcrt.zip x86/msvcrt.lib x64/msvcrt.lib
+	$$ zip ./msvcrt.zip ./readme.txt ./x86/msvcrt.lib ./x64/msvcrt.lib
 	for /f "tokens=* USEBACKQ" %i IN (`cat version.txt`) DO ( \
 		move msvcrt.zip releases/msvcrt_%i.zip \
 	)
