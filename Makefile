@@ -43,7 +43,7 @@ x86/msvcrt.lib: x86/msvcrt.def
 
 .PHONY: zip
 
-version.txt: GetFileVersionInfo.exe
+version.txt: GetFileVersionInfo.exe x64/msvcrt.lib
 	.\\GetFileVersionInfo.exe %windir%\\system32\\ntoskrnl.exe > version.txt
 
 readme.txt: Makefile GetFileVersionInfo.exe
