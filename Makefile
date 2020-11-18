@@ -47,7 +47,7 @@ version.txt: GetFileVersionInfo.exe x64/msvcrt.lib
 	.\\GetFileVersionInfo.exe %windir%\\system32\\ntoskrnl.exe > version.txt
 
 readme.txt: Makefile GetFileVersionInfo.exe
-	$$ printf "msvcrt.lib by Mahmoud Al-Qudsi <mqudsi@neosmart.net>\r\nCopyright NeoSmart Technologies 2018\r\nhttps://github.com/neosmart/msvcrt.lib\r\n\r\nBuilt against Windows %%s and msvcrt.dll %%s\r\n" "$$(./GetFileVersionInfo.exe user32.dll | dos2unix)" "$$(./GetFileVersionInfo.exe msvcrt.dll | dos2unix)" > $@
+	$$ printf "msvcrt.lib by Mahmoud Al-Qudsi <mqudsi@neosmart.net>\r\nCopyright NeoSmart Technologies %%d\r\nhttps://github.com/neosmart/msvcrt.lib\r\n\r\nBuilt against Windows %%s and msvcrt.dll %%s\r\n" "$$(date +%%Y)" "$$(./GetFileVersionInfo.exe user32.dll | dos2unix)" "$$(./GetFileVersionInfo.exe msvcrt.dll | dos2unix)" > $@
 
 zip: x86/msvcrt.lib x64/msvcrt.lib releases version.txt readme.txt
 # get Windows version number
