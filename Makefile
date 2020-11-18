@@ -4,7 +4,7 @@
 
 .PHONY: all
 
-all: x86/msvcrt.lib x64/msvcrt.lib
+all: x86/msvcrt.lib x64/msvcrt.lib zip
 
 GetFileVersionInfo.exe: GetFileVersionInfo/GetFileVersionInfo.c
 	cl.exe -DUNICODE -W4 -D_UNICODE $? /link mincore.lib /out:$@
